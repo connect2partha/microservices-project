@@ -1,0 +1,16 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: DEPARTMENT-SERVICE
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+  config:
+    import: optional:configserver:http://localhost:9296/
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:9296
+    
+  
