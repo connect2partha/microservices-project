@@ -1,16 +1,6 @@
 pipeline {
 	agent any
-
-	environment {
-		mavenHome = tool 'apache-maven-3.8.5'
-	}
-
-	tools {
-		jdk 'openjdk18'
-	}
-
 	stages {
-
 		stage('Build'){
 			steps {
                 withMaven(maven : 'apache-maven-3.8.5') {
@@ -18,7 +8,6 @@ pipeline {
                 }
 			}
 		}
-
 		stage('Test'){
 			steps{
                 withMaven(maven : 'apache-maven-3.8.5') {
@@ -26,7 +15,6 @@ pipeline {
                 }
 			}
 		}
-
 		stage('Deploy') {
 			steps {
 			    withMaven(maven : 'apache-maven-3.8.5') {
